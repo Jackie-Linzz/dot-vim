@@ -1,0 +1,103 @@
+{
+  "diagnostic.format": "[%source%code] [%severity] %message",
+  "diagnostic.refreshOnInsertMode": true,
+  "suggest.triggerCompletionWait": 300,
+  "python.formatting.provider": "yapf",
+  "python.linting.pylintEnabled": true,
+  "python.pythonPath": "/usr/bin/python3",
+  "python.analysis.typeCheckingMode": "basic",
+  "pyright.organizeimports.provider": "isort",
+  "prettier.proseWrap": "always",
+  "clangd.arguments": ["--completion-style=detailed"],
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "bzl",
+    "c",
+    "cpp",
+    "go",
+    "json",
+    "jsonc",
+    "lua",
+    "markdown",
+    "objc",
+    "objcpp",
+    "proto",
+    "python",
+    "sh",
+    "zsh"
+  ],
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "settings": {
+        "gopls": {
+          "deepCompletion": true,
+          "usePlaceholders": true,
+          "completionDocumentation": true,
+          "completeUnimported": true
+        }
+      }
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    }
+  },
+  // diagnostic-languageserver
+  "diagnostic-languageserver.linters": {
+    "buf": {
+      "command": "buf",
+      "rootPatterns": [".git", "buf.yaml"],
+      "debounce": 100,
+      "args": ["check", "lint", "--file", "%filepath"],
+      "sourceName": "buf",
+      "formatLines": 1,
+      "formatPattern": [
+        "(.*):(\\d+):(\\d+):(.*)$",
+        {
+          "line": 2,
+          "column": 3,
+          "message": 4
+        }
+      ]
+    }
+  },
+  "diagnostic-languageserver.filetypes": {
+    "proto": "buf",
+    "sh": "shellcheck",
+    "vim": "vint"
+  },
+  "diagnostic-languageserver.formatters": {
+    "clang-format": {
+      "command": "clang-format",
+      "args": ["--assume-filename", "%filepath"]
+    },
+    "buildifier": {
+      // buildifier's output could depend on the file's position relative to
+      // the workspace directory, and file type (WORKSPACE, BUILD, etc.), which
+      // can both be inferred from the filename, thus the `-path` artument.
+      "command": "buildifier",
+      "args": ["-lint", "fix", "-mode", "fix", "-path", "%filepath"]
+    },
+    "shfmt": {
+      "command": "shfmt",
+      "args": ["-i", "4"]
+    },
+    "lua-format": {
+      "command": "lua-format",
+      "args": ["-i"]
+    }
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "bzl": "buildifier",
+    "proto": "clang-format",
+    "sh": "shfmt",
+    "zsh": "shfmt",
+    "lua": "lua-format"
+  }
+}
