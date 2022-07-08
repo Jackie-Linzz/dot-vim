@@ -40,6 +40,7 @@ let mapleader=' '
 
 nnoremap <leader>tt :vertical terminal<CR>
 nnoremap <leader>th :terminal<CR>
+tmap <ESC> <C-W>N
 "nmap <a-j> <c-w>w<c-e><c-w>w
 "nmap <a-k> <c-w>w<c-y><c-w>w
 
