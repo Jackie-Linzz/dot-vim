@@ -84,7 +84,8 @@ let g:Lf_WildIgnore = {
 nnoremap <leader>ff :Leaderf file<CR>
 nnoremap <leader>b :Leaderf buffer<CR>
 nnoremap <leader>fr :Leaderf rg<CR>
-nnoremap <leader>r :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
+nnoremap <leader>r :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+nnoremap <leader>go :<C-U>Leaderf! rg --recall<CR>
 nnoremap <leader>fl :Leaderf line<CR>
 nnoremap <leader>fm :Leaderf mru<CR>
 
