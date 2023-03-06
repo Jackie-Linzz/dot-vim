@@ -13,13 +13,11 @@
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnSaveFiletypes": [
     "bzl",
-    "c",
-    "cpp",
     "json",
     "jsonc",
     "markdown",
     "proto",
-    "python",
+    //"python",
     "sh"
   ],
   "languageserver": {

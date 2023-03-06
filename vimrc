@@ -41,6 +41,7 @@ let mapleader=' '
 nnoremap <leader>tt :vertical terminal<CR>
 nnoremap <leader>th :terminal<CR>
 tmap <ESC> <C-W>N
+inoremap jk <ESC>
 "nmap <a-j> <c-w>w<c-e><c-w>w
 "nmap <a-k> <c-w>w<c-y><c-w>w
 
@@ -90,7 +91,7 @@ nnoremap <leader>fl :Leaderf line<CR>
 nnoremap <leader>fm :Leaderf mru<CR>
 
 " vim-rooter
-let g:rooter_patterns = ['.git', 'WORKSPACE', '.project']
+let g:rooter_patterns = ['.git', 'WORKSPACE', '.project', 'compile_commands.json']
 let g:rooter_cd_cmd = 'lcd'
 
 " coc
